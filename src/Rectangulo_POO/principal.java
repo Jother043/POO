@@ -1,3 +1,5 @@
+package Rectangulo_POO;
+
 import java.util.Scanner;
 
 public class principal {
