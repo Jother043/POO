@@ -74,4 +74,27 @@ public class MaquinaCafe {
                 ", monedero=" + monedero +
                 '}';
     }
+
+    public void servirCafe(int opcion){
+        double precio = 0;
+
+        vasosRestantes--;
+
+        switch (opcion) {
+            case OPCION_CAFE:
+                dosisCafes--;
+                precio = PRECIO_CAFE;
+                break;
+            case OPCION_LECHE:
+                dosisLeche--;
+                precio = PRECIO_LECHE;
+                break;
+            case OPCION_CAFE_LECHE:
+                dosisLeche--;
+                dosisCafes--;
+                precio = PRECIO_CAFE_LECHE;
+                break;
+        }
+        monedero = precio + monedero;
+    }
 }

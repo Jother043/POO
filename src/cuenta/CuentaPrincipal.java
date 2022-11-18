@@ -20,12 +20,12 @@ public class CuentaPrincipal {
 
         System.out.println("");
         System.out.println("");
-        double saldoInicial = CuentaPrincipal.pedirSaldoInicial(); //Le decimos que el saldoInicial es igual a
+        double saldoInicial = CuentaPrincipal.saldo(); //Le decimos que el saldoInicial es igual a
         cuenta = new Cuenta(saldoInicial);
 
         do {
             opcion = CuentaPrincipal.menu(); //  Muestra el menú y solicita la opción
-            salir = CuentaPrincipal.tratarMenu(opcion, cuenta); // Trata cada una de las opciones del menú
+            salir = CuentaPrincipal.opciones(opcion, cuenta); // Trata cada una de las opciones del menú
         } while (salir == 'n');
     }
 
@@ -33,7 +33,7 @@ public class CuentaPrincipal {
      * Este método se encarga de pedir el saldo inicial para poder hacer las gestiones necesarias.
      * @return saldoInicial, que sera de tipo double
      */
-    private static double pedirSaldoInicial() {
+    private static double saldo() {
         double saldoInicial;  
 
         do
@@ -70,7 +70,7 @@ public class CuentaPrincipal {
         return opcion;
     }
 
-    private static char tratarMenu(int opcion, Cuenta cuenta) {
+    private static char opciones(int opcion, Cuenta cuenta) {
         double cantidad;
         char salir = 'n';
 
