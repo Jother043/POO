@@ -53,8 +53,7 @@ public class MaquinaCafe {
         this.monedero = MINIMO_MONEDERO;
     }
 
-    public String estadoMaquina() {
-        return toString();
+    public String estadoMaquina() {        return toString();
     }
 
     public String mostrarMenu() {

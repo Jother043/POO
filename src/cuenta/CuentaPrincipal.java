@@ -1,5 +1,7 @@
 package cuenta;
 
+import EntradaSalida.Lectora;
+
 import java.util.Scanner;
 
 public class CuentaPrincipal {
@@ -75,23 +77,21 @@ public class CuentaPrincipal {
         char salir = 'n';
 
         switch (opcion) {
-            case 1: {
-                System.out.println("Introduce la cantidad a ingresar: ");
-                cantidad = Double.parseDouble(teclado.nextLine());
-                cuenta.ingresar(cantidad);
+            case 1:
+                cuenta.reintegro(Lectora.leerDouble("Introduce una cantidad"));
                 break;
-            }
-            case 2: {
+
+            case 2:
                 System.out.println("Introduce la cantidad a retirar: ");
                 cantidad = Double.parseDouble(teclado.nextLine());
                 cuenta.reintegro(cantidad);
                 break;
-            }
-            case 3: {
+
+            case 3:
                 System.out.println(cuenta);
                 break;
-            }
-            case 4: {
+
+            case 4:
                 do {
                     System.out.println("¿Estás seguro (s/n)? ");
                     salir = teclado.nextLine().charAt(0);
@@ -105,7 +105,7 @@ public class CuentaPrincipal {
                 }
 
                 break;
-            }
+
         }
         return salir;
     }
