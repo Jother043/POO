@@ -1,16 +1,15 @@
 package Rectangulo_POO;
 
+import EntradaSalida.Lectora;
+
 import java.util.Scanner;
 
 public class principal {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce el largo: ");
-        int altura = Integer.parseInt(sc.nextLine());
-        System.out.println("Introduce el ancho: ");
-        int anchura = Integer.parseInt(sc.nextLine());
-        Rectangulo r = new Rectangulo(altura, anchura );
+        double altura = Lectora.leerDouble("Introduce la altura");
+        double anchura = Lectora.leerDouble("Introduce la anchura");
+        Rectangulo r = new Rectangulo((int)altura, (int)anchura );
         System.out.println("La longitud es : " + r.longitud);
         System.out.println("La longitud es : " + r.anchura);
         System.out.println("El perimetro es :  " + r.calcularPerimetro());
