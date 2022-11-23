@@ -6,21 +6,32 @@ public class Lectora {
 
     public static Scanner sc = new Scanner(System.in);
 
-    public static double leerDouble (String mensaje){
+    public static double leerDouble(String mensaje) {
         System.out.println(mensaje);
+        double res = 0;
+        boolean ok = false;
 
-        //TODO Cambiar el codigo cuando veamos las excepciones.
-        return Double.parseDouble(sc.nextLine());
+        do {
+            try {
+                res = Double.parseDouble(sc.nextLine());
+                ok = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Tienes que introducir un número.");
+            }
+        } while (!ok);
+
+        return res;
     }
-    public static int leerEnteroDeRango (String mensaje, int numMax, int nunMin){
+
+    public static int leerEnteroDeRango(String mensaje, int numMax, int nunMin) {
         int opcionIntroducido = 0;
-        do{
+        do {
             System.out.println(mensaje);
             opcionIntroducido = Integer.parseInt(sc.nextLine());
-            if(opcionIntroducido < nunMin || opcionIntroducido > numMax ){
+            if (opcionIntroducido < nunMin || opcionIntroducido > numMax) {
                 System.out.println("Numero fuera de rango");
             }
-        }while(opcionIntroducido < nunMin || opcionIntroducido > numMax );
+        } while (opcionIntroducido < nunMin || opcionIntroducido > numMax);
         //TODO Cambiar el codigo cuando veamos las excepciones.
         return opcionIntroducido;
     }
