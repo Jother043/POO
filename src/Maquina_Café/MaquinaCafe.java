@@ -53,15 +53,16 @@ public class MaquinaCafe {
         this.monedero = MINIMO_MONEDERO;
     }
 
-    public String estadoMaquina() {        return toString();
+    public String estadoMaquina() {
+        return toString();
     }
 
     public String mostrarMenu() {
-        return "1. Café solo (" + PRECIO_CAFE + " €)"
-                + "\n2. Leche (" + PRECIO_LECHE + " €)"
-                + "\n3. Café con leche (" + PRECIO_CAFE_LECHE + " €)"
-                + "\n4. Conocer estado de la máquina"
-                + "\n5. Apagar máquina y salir";
+        return  OPCION_CAFE + ". Café solo (" + PRECIO_CAFE + " €)\n" +
+        OPCION_LECHE+ ". Leche (" + PRECIO_LECHE + " €)\n" +
+        OPCION_CAFE_LECHE+ ". Café con leche (" + PRECIO_CAFE_LECHE + " €)\n" +
+        OPCION_ESTADO + ". Conocer estado de la máquina\n" +
+        OPCION_APAGAR + ". Apagar máquina y salir\n";
     }
 
     @Override
@@ -74,7 +75,7 @@ public class MaquinaCafe {
                 '}';
     }
 
-    public void servirCafe(int opcion){
+    public void servirCafe(int opcion) {
         double precio = 0;
 
         vasosRestantes--;

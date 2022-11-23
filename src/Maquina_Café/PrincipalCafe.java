@@ -1,5 +1,7 @@
 package Maquina_Café;
 
+import EntradaSalida.Lectora;
+
 import javax.naming.PartialResultException;
 import java.util.Scanner;
 
@@ -13,8 +15,7 @@ public class PrincipalCafe {
         boolean apagarmaquina = false;
         do {
             System.out.println(maquina.mostrarMenu());
-            System.out.println("¿ Que deseas tomar ? - elige la opción que desee :");
-            opcion = Integer.parseInt(sc.nextLine());
+            opcion = Lectora.leerEnteroDeRango("¿ Que deseas tomar ? - elige la opción deseada :", 5, 1);
             maquina.servirCafe(opcion);
             switch (opcion) {
                 case MaquinaCafe.OPCION_CAFE:
@@ -26,11 +27,12 @@ public class PrincipalCafe {
                 case MaquinaCafe.OPCION_ESTADO:
                     System.out.println(maquina);
                 case MaquinaCafe.OPCION_APAGAR:
+                    apagarmaquina = true;
                     break;
                 default:
                     System.out.println("Opción no válida");
             }
-        } while (opcion != MaquinaCafe.OPCION_APAGAR);
+        } while (!apagarmaquina);
     }
 
     public static double precioProducto(int opcion) {
@@ -72,11 +74,11 @@ public class PrincipalCafe {
     public static double controlDinero(int opcion) {
         double dineroEntregado = pedirDinero(opcion);
 
-        while (dineroEntregado <= pedirDinero(opcion)) {
+        while (dineroEntregado < pedirDinero(opcion)) {
             if (dineroEntregado > 0) {
                 System.out.println("Ha introducido: " + dineroEntregado);
             }
-            dineroEntregado = dineroEntregado + pedirDinero(opcion);
+            dineroEntregado = dineroEntregado - pedirDinero(opcion);
         }
 
         return dineroEntregado;
