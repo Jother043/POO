@@ -1,5 +1,6 @@
 package EntradaSalida;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Lectora {
@@ -61,6 +62,8 @@ public class Lectora {
                 enteroPositivo = Integer.parseInt(sc.nextLine());
                 if (enteroPositivo >= 0) {
                     ok = true;
+                }else{
+                    System.out.println("El numero introducido es negativo, intentelo de nuevo. ");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Tienes que introducir un número.");
@@ -84,5 +87,47 @@ public class Lectora {
             }
         }
         return cracterIntroducido;
+    }
+
+    public static char leerCaracterSN(String mensaje) {
+        char cracterIntroducido = ' ';
+        boolean ok = false;
+        while (!ok) {
+            System.out.println(mensaje);
+            try {
+                cracterIntroducido = sc.next().toUpperCase(Locale.ROOT).charAt(0);
+                if(cracterIntroducido == 'S' || cracterIntroducido == 'N') {
+                    ok = true;
+                }else {
+                    System.out.println("El caracter introducido debe ser S o N");
+                }
+
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("Esta fuera de rango");
+            }
+        }
+        return cracterIntroducido;
+    }
+
+    public static String solicitarCadena(String mensaje) {
+        String cadena = "";
+
+        // Variable que almacenará un booleano que indicará si se le debe volver a pedir el dato al usuario.
+        boolean ok = true;
+
+        while(ok) {
+            // Pedimos el string por pantalla.
+            System.out.println(mensaje);
+            // Comprobamos si el usuario está introduciendo algo correcto usando la excepción del método parseInt.
+
+            cadena = sc.nextLine();
+
+            if (cadena.length() > 0) {
+                // Si llegamos hasta aquí, es porque el usuario ha introducido un dato correcto y no se ha lanzado ninguna excepción.
+                ok = false;
+            }
+        }
+
+        return cadena;
     }
 }
