@@ -1,4 +1,4 @@
-package Ordenador;
+package Ordenador_y_videojuego;
 
 public class Ordenador {
     private PlacaBase placa;
@@ -9,13 +9,14 @@ public class Ordenador {
     public Ordenador(PlacaBase placa, MicroProcesador micro, DiscoDuro hd, TarjetaGrafica grafica) {
 
         if (placa.comprobaSocket(micro)) {
+            System.out.println("Todas las piezas son compatibles.");
             this.placa = placa;
             this.micro = micro;
             this.hd = hd;
             this.grafica = grafica;
         }
         else {
-            System.out.println("La placa base no es compatible con el microprocesador");
+            System.out.println("El procesador y la placa tienen que ser del mismo socket.");
         }
 
     }

@@ -1,4 +1,4 @@
-package Ordenador;
+package Ordenador_y_videojuego;
 
 public class PlacaBase {
     //Creamos los atributos de PlacaBase.

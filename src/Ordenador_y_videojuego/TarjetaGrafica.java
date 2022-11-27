@@ -1,4 +1,4 @@
-package Ordenador;
+package Ordenador_y_videojuego;
 
 public class TarjetaGrafica {
 
@@ -16,44 +16,12 @@ public class TarjetaGrafica {
         this.memoria = memoria;
     }
 
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
     public int getNucleos() {
         return nucleos;
     }
 
-    public void setNucleos(int nucleos) {
-        this.nucleos = nucleos;
-    }
-
-    public float getVelocidad() {
-        return velocidad;
-    }
-
-    public void setVelocidad(float velocidad) {
-        this.velocidad = velocidad;
-    }
-
     public int getMemoria() {
         return memoria;
-    }
-
-    public void setMemoria(int memoria) {
-        this.memoria = memoria;
     }
 
     @Override

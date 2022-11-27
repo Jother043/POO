@@ -1,7 +1,9 @@
-package Ordenador;
+package Ordenador_y_videojuego;
 
 public class DiscoDuro {
 
+    public int nucleos;
+    public float velocidad;
     String marca;
     String tipo;
     int capacidad;
@@ -10,26 +12,6 @@ public class DiscoDuro {
         this.marca = marca;
         this.tipo = tipo;
         this.capacidad = capacidad;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public int getCapacidad() {
-        return capacidad;
     }
 
     public void setCapacidad(int capacidad) {
