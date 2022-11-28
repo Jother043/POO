@@ -18,7 +18,6 @@ public class Ordenador {
         else {
             System.out.println("El procesador y la placa tienen que ser del mismo socket.");
         }
-
     }
 
     @Override

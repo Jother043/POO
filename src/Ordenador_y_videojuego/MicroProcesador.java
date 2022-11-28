@@ -4,10 +4,18 @@ public class MicroProcesador {
     //Creamos los atributos de Procesador.
     String marca;
     String modelo;
-    int nucleos;
-    float velocidad;
+    static int nucleos;
+    static float velocidad;
     String socket;
 
+    /**
+     * Contructor del Micro Procesador.
+     * @param marca
+     * @param modelo
+     * @param nucleos
+     * @param velocidad
+     * @param socket
+     */
     public MicroProcesador(String marca, String modelo, int nucleos, float velocidad, String socket) {
         this.marca = marca;
         this.modelo = modelo;
@@ -16,11 +24,11 @@ public class MicroProcesador {
         this.socket = socket;
     }
 
-    public int getNucleos() {
+    public static int getNucleos() {
         return nucleos;
     }
 
-    public float getVelocidad() {
+    public static float getVelocidad() {
         return velocidad;
     }
 
@@ -28,6 +36,10 @@ public class MicroProcesador {
         return socket;
     }
 
+    /**
+     * Método que pinta en un String de todos los atributos.
+     * @return String
+     */
 
     @Override
     public String toString() {

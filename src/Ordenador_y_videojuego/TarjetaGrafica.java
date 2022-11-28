@@ -4,9 +4,9 @@ public class TarjetaGrafica {
 
     String marca;
     String modelo;
-    int nucleos;
+    static int nucleos;
     float velocidad;
-    int memoria;
+    static int memoria;
 
     public TarjetaGrafica(String marca, String modelo, int nucleos, float velocidad, int memoria) {
         this.marca = marca;
@@ -16,11 +16,11 @@ public class TarjetaGrafica {
         this.memoria = memoria;
     }
 
-    public int getNucleos() {
+    public static int getNucleos() {
         return nucleos;
     }
 
-    public int getMemoria() {
+    public static int getMemoria() {
         return memoria;
     }
 

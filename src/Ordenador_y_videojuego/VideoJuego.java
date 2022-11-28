@@ -10,6 +10,9 @@ public class VideoJuego {
     int espacioDisco;
     int numNucleoGpu;
     int numMemoriaGpu;
+    private MicroProcesador cpu;
+    private TarjetaGrafica gpu;
+    private DiscoDuro discoDuro;
 
     public VideoJuego(String nombre, String company, int year, int numNucleo, float velocidaCpu, int espacioDisco, int numNucleoGpu, int numMemoriaGpu) {
         this.nombre = nombre;
@@ -22,17 +25,13 @@ public class VideoJuego {
         this.numMemoriaGpu = numMemoriaGpu;
     }
 
-    public boolean comprobarEjecucion(DiscoDuro cpu, TarjetaGrafica gpu, DiscoDuro discoDuro, float velocidaCpu, int numMemoriaGpu, int espacioDisco, int numNucleo, int numNucleoGpu){
+    public boolean comprobarEjecucion(MicroProcesador cpu, TarjetaGrafica gpu, DiscoDuro discoDuro, float velocidaCpu, int numMemoriaGpu, int espacioDisco, int numNucleo, int numNucleoGpu) {
 
         boolean compatible = false;
 
-        if(cpu.nucleos == numNucleo && cpu.velocidad == velocidaCpu && discoDuro.capacidad == espacioDisco && gpu.nucleos == numNucleoGpu && gpu.memoria == numMemoriaGpu){
-            System.out.println("Enhorabuena, el juego es compatible con su equipo.");
+        if (MicroProcesador.getNucleos() == numNucleo && MicroProcesador.getVelocidad() == velocidaCpu && DiscoDuro.getCapacidad() == espacioDisco && TarjetaGrafica.getNucleos() == numNucleoGpu && TarjetaGrafica.getMemoria() == numMemoriaGpu) {
             compatible = true;
-        }else {
-            System.out.println("El juego no es compatible con su equipo");
         }
-
         return compatible;
     }
 

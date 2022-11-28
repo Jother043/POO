@@ -6,7 +6,7 @@ public class DiscoDuro {
     public float velocidad;
     String marca;
     String tipo;
-    int capacidad;
+    static int capacidad;
 
     public DiscoDuro(String marca, String tipo, int capacidad) {
         this.marca = marca;
@@ -14,8 +14,8 @@ public class DiscoDuro {
         this.capacidad = capacidad;
     }
 
-    public void setCapacidad(int capacidad) {
-        this.capacidad = capacidad;
+    public static int getCapacidad() {
+        return capacidad;
     }
 
     @Override

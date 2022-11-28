@@ -1,7 +1,9 @@
 package EntradaSalida;
 
 import java.util.Locale;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.StringJoiner;
 
 public class Lectora {
 
@@ -9,20 +11,22 @@ public class Lectora {
 
     /**
      * Este metodo se encarga de pedir al usuario un double por teclado, controlando las excepciones.
+     *
      * @param mensaje Pasamos mensaje por parametro, el cual será el que se le muestre al usuario.
      * @return
      */
     public static double leerDouble(String mensaje) {
         //Mostramos el mensaje por pantalla.
-        System.out.println(mensaje);
+
         //Declaramos las variables necesarias.
-        double res = 0;
+        double leerDouble = 0;
         boolean ok = false;
         //Hacemos un do, para controlar que se repita mientras ok sea falso
         do {
+            System.out.println(mensaje);
             try {
                 //pedimos el número y ponemos ok como true, si no fuera un número nos saltaría la excepción
-                res = Double.parseDouble(sc.nextLine());
+                leerDouble = Double.parseDouble(sc.nextLine());
                 ok = true;
                 //Capturamos la excepción y mostramos el error
             } catch (NumberFormatException e) {
@@ -30,7 +34,7 @@ public class Lectora {
             }
         } while (!ok);
 
-        return res;
+        return leerDouble;
     }
 
     public static int leerEnteroDeRango(String mensaje, int numMax, int nunMin) {
@@ -62,7 +66,7 @@ public class Lectora {
                 enteroPositivo = Integer.parseInt(sc.nextLine());
                 if (enteroPositivo >= 0) {
                     ok = true;
-                }else{
+                } else {
                     System.out.println("El numero introducido es negativo, intentelo de nuevo. ");
                 }
             } catch (NumberFormatException e) {
@@ -96,9 +100,9 @@ public class Lectora {
             System.out.println(mensaje);
             try {
                 cracterIntroducido = sc.next().toUpperCase(Locale.ROOT).charAt(0);
-                if(cracterIntroducido == 'S' || cracterIntroducido == 'N') {
+                if (cracterIntroducido == 'S' || cracterIntroducido == 'N') {
                     ok = true;
-                }else {
+                } else {
                     System.out.println("El caracter introducido debe ser S o N");
                 }
 
@@ -111,24 +115,36 @@ public class Lectora {
 
     public static String solicitarCadena(String mensaje) {
         String cadena = "";
-
-        // Variable que almacenará un booleano que indicará si se le debe volver a pedir el dato al usuario.
         boolean ok = true;
 
-        while(ok) {
-            // Pedimos el string por pantalla.
+        while (ok) {
             System.out.println(mensaje);
-            // Comprobamos si el usuario está introduciendo algo correcto usando la excepción del método parseInt.
-
-            cadena = sc.nextLine();
-
-            if (cadena.length() > 0) {
-                // Si llegamos hasta aquí, es porque el usuario ha introducido un dato correcto y no se ha lanzado ninguna excepción.
-                ok = false;
+            try {
+                cadena = sc.nextLine();
+                if (cadena.length() > 0) {
+                    // Si llegamos hasta aquí, es porque el usuario ha introducido un dato correcto y no se ha lanzado ninguna excepción.
+                    ok = false;
+                }
+            } catch (NoSuchElementException e) {
+                System.out.println("No has introducido elementos");
             }
         }
 
         return cadena;
+    }
+
+    public static String leerOpciones(String mensaje, String[] opciones) {
+        int opcionElegida = 0;
+
+        do {
+            for (int i = 0; i < opciones.length; i++) {
+                System.out.printf("%d = %s \n", i + 1, opciones[i]);
+            }
+            System.out.println(mensaje);
+            opcionElegida = Integer.parseInt(sc.nextLine());
+        } while (opcionElegida <= 0 && opcionElegida > opciones.length);
+
+        return opciones[opcionElegida - 1];
     }
 
 }
