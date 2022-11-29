@@ -2,11 +2,11 @@ package Ordenador_y_videojuego;
 
 public class MicroProcesador {
     //Creamos los atributos de Procesador.
-    String marca;
-    String modelo;
-    static int nucleos;
-    static float velocidad;
-    String socket;
+    private String marca;
+    private String modelo;
+    private static int nucleos;
+    private static float velocidad;
+    private String socket;
 
     /**
      * Contructor del Micro Procesador.

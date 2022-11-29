@@ -7,11 +7,15 @@ public class ComprobarJuego {
         DiscoDuro discoDuro = new DiscoDuro("Kingstong", "SSD", 1000);
         TarjetaGrafica grafica = new TarjetaGrafica("Gigabyte Aorus Master", "RTX3070", 184, 4f, 8);
         Ordenador ordenador = new Ordenador(placa, microProcesador, discoDuro, grafica);
+        System.out.printf("Componentes ordenador: %s",ordenador);
         VideoJuego juego1 = new VideoJuego("Battlefield V", "EA", 2020 , 12, 5.00f, 1000, 184, 8);
-        VideoJuego juego2 = new VideoJuego("Battlefield V", "EA", 2020, 12, 5.00f, 1000, 184, 8);
-        juegoVerificado juegoVerificado = new juegoVerificado(juego1);
-        System.out.println(juego1);
-        System.out.println(ordenador);
+        VideoJuego juego2 = new VideoJuego("Battlefield V", "EA", 2020, 4, 2.00f, 500, 110, 4);
+        juegoVerificado juegoVerificado = new juegoVerificado(juego1,microProcesador,grafica,discoDuro);
+        System.out.printf("Requisitos juegos1: %s \n", juegoVerificado);
+        juegoVerificado juegoVerificado2 = new juegoVerificado(juego2,microProcesador,grafica,discoDuro);
+        System.out.printf("Requisitos juegos2: %s \n", juegoVerificado2
+        );
+
     }
 
 }

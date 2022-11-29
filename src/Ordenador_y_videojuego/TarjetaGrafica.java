@@ -2,11 +2,11 @@ package Ordenador_y_videojuego;
 
 public class TarjetaGrafica {
 
-    String marca;
-    String modelo;
-    static int nucleos;
-    float velocidad;
-    static int memoria;
+    private String marca;
+    private String modelo;
+    private static int nucleos;
+    private float velocidad;
+    private static int memoria;
 
     public TarjetaGrafica(String marca, String modelo, int nucleos, float velocidad, int memoria) {
         this.marca = marca;

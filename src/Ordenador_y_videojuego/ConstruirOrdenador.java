@@ -7,8 +7,10 @@ public class ConstruirOrdenador {
         PlacaBase placa1 = new PlacaBase("MSI", "Z370", "LGA-1151");
         DiscoDuro discoDuro = new DiscoDuro("Kingstong", "SSD", 1000);
         TarjetaGrafica grafica = new TarjetaGrafica("Gigabyte Aorus Master", "RTX3070", 184, 4f, 8);
-        Ordenador ordenador = new Ordenador(placa1, microProcesador, discoDuro, grafica);
-        System.out.println(ordenador);
+        Ordenador ordenador = new Ordenador(placa, microProcesador, discoDuro, grafica);
+        Ordenador ordenador2 = new Ordenador(placa1, microProcesador, discoDuro, grafica);
+        System.out.printf("Este es el ordenador 1: %s \n", ordenador);
+        System.out.printf("Este es el ordenador 2: %s \n", ordenador2);
     }
 
 }

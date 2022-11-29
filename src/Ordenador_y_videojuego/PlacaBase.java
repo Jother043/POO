@@ -2,9 +2,9 @@ package Ordenador_y_videojuego;
 
 public class PlacaBase {
     //Creamos los atributos de PlacaBase.
-    String nombre;
-    String chipset;
-    String socket;
+    private String nombre;
+    private String chipset;
+    private String socket;
 
     /**
      * Creamos un constructor con los siguientes parámetros.
@@ -26,13 +26,13 @@ public class PlacaBase {
     public boolean comprobaSocket(MicroProcesador microProcesador){
         boolean socketIguales = false;
 
-        if(microProcesador.socket.equals(socket)){
+        if(microProcesador.getSocket().equals(socket)){
             socketIguales = true;
         }else{
             socketIguales = false;
         }
         return socketIguales;
-        /*también he visto que esto se puede simplificar devolviendo si o no directamente con
+        /*Tambien podemos usar para ahorrarnos unas lineas -->
         return microProcesador.socket.equals(socket)
          */
     }
