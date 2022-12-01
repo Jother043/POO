@@ -13,8 +13,7 @@ public class ComprobarJuego {
         juegoVerificado juegoVerificado = new juegoVerificado(juego1,microProcesador,grafica,discoDuro);
         System.out.printf("Requisitos juegos1: %s \n", juegoVerificado);
         juegoVerificado juegoVerificado2 = new juegoVerificado(juego2,microProcesador,grafica,discoDuro);
-        System.out.printf("Requisitos juegos2: %s \n", juegoVerificado2
-        );
+        System.out.printf("Requisitos juegos2: %s \n", juegoVerificado2);
 
     }
 

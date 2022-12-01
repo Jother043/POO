@@ -29,7 +29,6 @@ public class VideoJuego {
         return numNucleo;
     }
 
-
     public float getVelocidaCpu() {
         return velocidaCpu;
     }
@@ -42,11 +41,9 @@ public class VideoJuego {
         return numNucleoGpu;
     }
 
-
     public int getNumMemoriaGpu() {
         return numMemoriaGpu;
     }
-
 
     public MicroProcesador getCpu() {
         return cpu;
@@ -55,6 +52,7 @@ public class VideoJuego {
     public TarjetaGrafica getGpu() {
         return gpu;
     }
+
 
     public boolean comprobarEjecucion(MicroProcesador cpu, TarjetaGrafica gpu, DiscoDuro discoDuro, float velocidaCpu, int numMemoriaGpu, int espacioDisco, int numNucleo, int numNucleoGpu) {
 

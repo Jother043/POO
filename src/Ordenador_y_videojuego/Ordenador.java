@@ -22,7 +22,7 @@ public class Ordenador {
 
     @Override
     public String toString() {
-        return "Ordenador [placa=" + placa + ", micro=" + micro + ", hd=" + hd + ", grafica=" + grafica + "] \n";
+        return "\n Ordenador: \n placa=" + placa + ",\n micro=" + micro + ",\n hd=" + hd + ",\n grafica=" + grafica + ". \n";
     }
 
 

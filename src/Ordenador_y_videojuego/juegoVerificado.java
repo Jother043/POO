@@ -7,7 +7,7 @@ public class juegoVerificado {
     private TarjetaGrafica gpu;
     private DiscoDuro discoDuro;
     /**
-     * Método constructor, el cual evalúa si es verdadero juego.comprobarEjecucion(....), entonces, entramos en el if
+     * Método constructor, el cual evalúa si es verdadero juego.comprobarEjecución(....), entonces, entramos en el if
      * y mostramos un mensaje e iniciamos el constructor, si no mostramos otro mensaje.
      * @param juego Le pasamos juego por parámetro.
      */
@@ -20,7 +20,7 @@ public class juegoVerificado {
             this.gpu = gpu;
             this.discoDuro = discoDuro;
         }else{
-            System.out.println("Vaya, no cumple lo requisitos");
+            System.out.println("Vaya, tu equipo no cumple lo requisitos del juego.");
         }
 
     }
@@ -29,11 +29,11 @@ public class juegoVerificado {
 
     @Override
     public String toString() {
-        return "juegoVerificado{" +
-                "juego=" + juego +
-                ", cpu=" + cpu +
-                ", gpu=" + gpu +
-                ", discoDuro=" + discoDuro +
-                '}';
+        return "\n juegoVerificado :" +
+                "\n juego=" + juego +
+                ",\n cpu=" + cpu +
+                ",\n gpu=" + gpu +
+                ",\n discoDuro=" + discoDuro +
+                '.';
     }
 }

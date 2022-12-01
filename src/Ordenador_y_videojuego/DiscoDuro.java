@@ -12,7 +12,7 @@ public class DiscoDuro {
     private static int capacidad;
 
     /**
-     * Metodo constructor.
+     * Método constructor.
      * @param marca
      * @param tipo
      * @param capacidad
