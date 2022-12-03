@@ -1,7 +1,7 @@
 package Ordenador_y_videojuego;
 
 public class VideoJuego {
-
+    //Atributos de la clase VideoJuego.
     private String nombre;
     private String company;
     private int year;
@@ -14,6 +14,17 @@ public class VideoJuego {
     private TarjetaGrafica gpu;
     private DiscoDuro discoDuro;
 
+    /**
+     * Constructor de la clase VideoJuego.
+     * @param nombre
+     * @param company
+     * @param year
+     * @param numNucleo
+     * @param velocidaCpu
+     * @param espacioDisco
+     * @param numNucleoGpu
+     * @param numMemoriaGpu
+     */
     public VideoJuego(String nombre, String company, int year, int numNucleo, float velocidaCpu, int espacioDisco, int numNucleoGpu, int numMemoriaGpu) {
         this.nombre = nombre;
         this.company = company;
@@ -53,15 +64,23 @@ public class VideoJuego {
         return gpu;
     }
 
+    /**
+     * Método, que nos comprueba la compatibilidad del Videojuego, pasamos por parámetros, CPU, GPU, Disco duro, y todos
+     * los atributos de la clase, Creamos una variable booleana, ya que devolveremos un booleano, la cual nos indicara la compatibilidad.
+     * @param cpu
+     * @param gpu
+     * @param discoDuro
+     * @param velocidaCpu
+     * @param numMemoriaGpu
+     * @param espacioDisco
+     * @param numNucleo
+     * @param numNucleoGpu
+     * @return booleano
+     */
 
     public boolean comprobarEjecucion(MicroProcesador cpu, TarjetaGrafica gpu, DiscoDuro discoDuro, float velocidaCpu, int numMemoriaGpu, int espacioDisco, int numNucleo, int numNucleoGpu) {
 
-        boolean compatible = false;
-
-        if (MicroProcesador.getNucleos() == numNucleo && MicroProcesador.getVelocidad() == velocidaCpu && DiscoDuro.getCapacidad() == espacioDisco && TarjetaGrafica.getNucleos() == numNucleoGpu && TarjetaGrafica.getMemoria() == numMemoriaGpu) {
-            compatible = true;
-        }
-        return compatible;
+        return MicroProcesador.getNucleos() == numNucleo && MicroProcesador.getVelocidad() == velocidaCpu && DiscoDuro.getCapacidad() == espacioDisco && TarjetaGrafica.getNucleos() == numNucleoGpu && TarjetaGrafica.getMemoria() == numMemoriaGpu;
     }
 
     @Override

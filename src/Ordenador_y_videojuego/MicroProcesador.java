@@ -23,7 +23,7 @@ public class MicroProcesador {
         this.velocidad = velocidad;
         this.socket = socket;
     }
-
+    //Métodos que devuelven el núcleo, velocidad y el tipo de socket.
     public static int getNucleos() {
         return nucleos;
     }

@@ -24,17 +24,12 @@ public class PlacaBase {
      * @return
      */
     public boolean comprobaSocket(MicroProcesador microProcesador){
-        boolean socketIguales = false;
-
-        if(microProcesador.getSocket().equals(socket)){
-            socketIguales = true;
-        }else{
-            socketIguales = false;
-        }
-        return socketIguales;
-        /*Tambien podemos usar para ahorrarnos unas lineas -->
-        return microProcesador.socket.equals(socket)
+        /*
+        Este return nos devuelve un booleano, el cual no definimos porque lo evaluamos directamente ne el return,
+        si se cumple la expresión getSocket del micro es igual a socket de placa entonces nos devuelve un true, si
+        no son iguales nos devolverá un false.
          */
+        return microProcesador.getSocket().equals(socket);
     }
 
     /**

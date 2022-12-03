@@ -8,6 +8,14 @@ public class TarjetaGrafica {
     private float velocidad;
     private static int memoria;
 
+    /**
+     * Método constructor de tarjeta gráfica.
+     * @param marca
+     * @param modelo
+     * @param nucleos
+     * @param velocidad
+     * @param memoria
+     */
     public TarjetaGrafica(String marca, String modelo, int nucleos, float velocidad, int memoria) {
         this.marca = marca;
         this.modelo = modelo;
@@ -15,7 +23,7 @@ public class TarjetaGrafica {
         this.velocidad = velocidad;
         this.memoria = memoria;
     }
-
+    // Métodos getter de Nucleo y Memoria.
     public static int getNucleos() {
         return nucleos;
     }
