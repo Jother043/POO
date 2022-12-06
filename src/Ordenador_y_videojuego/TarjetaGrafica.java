@@ -4,9 +4,9 @@ public class TarjetaGrafica {
 
     private String marca;
     private String modelo;
-    private static int nucleos;
+    private int nucleos;
     private float velocidad;
-    private static int memoria;
+    private int memoria;
 
     /**
      * Método constructor de tarjeta gráfica.
@@ -24,11 +24,11 @@ public class TarjetaGrafica {
         this.memoria = memoria;
     }
     // Métodos getter de Nucleo y Memoria.
-    public static int getNucleos() {
+    public int getNucleos() {
         return nucleos;
     }
 
-    public static int getMemoria() {
+    public int getMemoria() {
         return memoria;
     }
 

@@ -80,7 +80,7 @@ public class VideoJuego {
 
     public boolean comprobarEjecucion(MicroProcesador cpu, TarjetaGrafica gpu, DiscoDuro discoDuro, float velocidaCpu, int numMemoriaGpu, int espacioDisco, int numNucleo, int numNucleoGpu) {
 
-        return MicroProcesador.getNucleos() == numNucleo && MicroProcesador.getVelocidad() == velocidaCpu && DiscoDuro.getCapacidad() == espacioDisco && TarjetaGrafica.getNucleos() == numNucleoGpu && TarjetaGrafica.getMemoria() == numMemoriaGpu;
+        return MicroProcesador.getNucleos() >= numNucleo && MicroProcesador.getVelocidad() >= velocidaCpu && DiscoDuro.getCapacidad() >= espacioDisco && gpu.getNucleos() >= numNucleoGpu && gpu.getMemoria() >= numMemoriaGpu;
     }
 
     @Override
