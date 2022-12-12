@@ -16,9 +16,9 @@ public class Lectora {
      * @return
      */
     public static double leerDouble(String mensaje) {
-        //Mostramos el mensaje por pantalla.
+        //Mostrámos el mensaje por pantalla.
 
-        //Declaramos las variables necesarias.
+        //Declarámos las variables necesarias.
         double leerDouble = 0;
         boolean ok = false;
         //Hacemos un do, para controlar que se repita mientras ok sea falso
@@ -28,7 +28,7 @@ public class Lectora {
                 //pedimos el número y ponemos ok como true, si no fuera un número nos saltaría la excepción
                 leerDouble = Double.parseDouble(sc.nextLine());
                 ok = true;
-                //Capturamos la excepción y mostramos el error
+                //Capturamos la excepción y mostrámos el error
             } catch (NumberFormatException e) {
                 System.out.println("Tienes que introducir un número.");
             }

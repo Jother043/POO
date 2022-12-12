@@ -1,7 +1,7 @@
 package Biblioteca;
 
 public class BibliotecaException extends Exception {
-    public BibliotecaException(){
+    public BibliotecaException(String m){
         super();
     }
 }
