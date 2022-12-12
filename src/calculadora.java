@@ -4,13 +4,18 @@ public class calculadora {
 
     private static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-        int num1 = 0;
-        int num2 = 0;
-        System.out.println("Introduce el primer numero a restar");
-        num1 =  Integer.parseInt(sc.nextLine());
-        System.out.println("Introduce el segundo numero a restar");
-        num2 =  Integer.parseInt(sc.nextLine());
-        int total = num1 - num2;
-        System.out.println("la resta da : " + total);
+        String correo = "";
+        System.out.println();
+       correo = sc.nextLine();
+        devolverDominio(correo);
+
+    }
+
+    private static String devolverDominio (String correo){
+        int posicion = correo.indexOf("@");
+        int posicion2 = correo.indexOf(".");
+        String correo2 = correo.substring(posicion+1, posicion2);
+        System.out.println(correo2);
+        return correo;
     }
 }
