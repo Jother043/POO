@@ -30,7 +30,7 @@ public class Persona {
      * Este método se encarga de crear y añadir el mensaje en el buzon del cliente
      *
      * @param mensaje
-     * @param buzon
+     *
      */
     public void enviarMensaje(Mensaje mensaje) throws MensajeriaException {
 

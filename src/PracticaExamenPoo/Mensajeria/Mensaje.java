@@ -44,19 +44,19 @@ public class Mensaje {
     /**
      * Crea un objeto de tipo mensaje.
      *
-     * @param persona
+     *
      * @return
      */
-    public Mensaje enviarMensaje(Persona persona) {
-
-        String asunto = Lectora.solicitarCadena("Introduce el asunto del mensaje. ");
-        String cuerpo = Lectora.solicitarCadena("Introduce el cuerpo del mensaje. ");
-        LocalDate hora = LocalDate.now();
-        String remitente = persona.getNombre();
-        String destinatario = Lectora.solicitarCadena("Introduce el destinatario");
-
-        return new Mensaje(asunto, cuerpo, hora, remitente, destinatario);
-    }
+//    public Mensaje enviarMensaje(Persona persona) {
+//
+////        String asunto = Lectora.solicitarCadena("Introduce el asunto del mensaje. ");
+////        String cuerpo = Lectora.solicitarCadena("Introduce el cuerpo del mensaje. ");
+////        LocalDate hora = LocalDate.now();
+////        String remitente = persona.getNombre();
+////        String destinatario = Lectora.solicitarCadena("Introduce el destinatario");
+////
+////        return new Mensaje(asunto, cuerpo, hora, remitente, destinatario);
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -71,14 +71,14 @@ public class Mensaje {
         return Objects.hash(asunto, cuerpo, fechaEnvio, remitente, destinatario);
     }
 
-    @Override
-    public String toString() {
-        return "Mensaje{" +
-                "asunto='" + asunto + '\'' +
-                ", cuerpo='" + cuerpo + '\'' +
-                ", fechaEnvio=" + fechaEnvio +
-                ", remitente='" + remitente + '\'' +
-                ", Destinatario='" + Destinatario + '\'' +
-                '}';
-    }
+
+//    public String toString() {
+//        return "Mensaje{" +
+//                "asunto='" + asunto + '\'' +
+//                ", cuerpo='" + cuerpo + '\'' +
+//                ", fechaEnvio=" + fechaEnvio +
+//                ", remitente='" + remitente + '\'' +
+//                ", Destinatario='" + Destinatario + '\'' +
+//                '}';
+//    }
 }

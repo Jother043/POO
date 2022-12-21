@@ -77,6 +77,26 @@ public class Lectora {
         return enteroPositivo;
     }
 
+    public static double leerDoublePositivo(String mensaje) {
+        double enteroPositivo = 0;
+        boolean ok = false;
+        while (!ok) {
+            System.out.println(mensaje);
+            try {
+                enteroPositivo = Double.parseDouble(sc.nextLine());
+                if (enteroPositivo >= 0) {
+                    ok = true;
+                } else {
+                    System.out.println("El numero introducido es negativo, intentelo de nuevo. ");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Tienes que introducir un número.");
+            }
+        }
+
+        return enteroPositivo;
+    }
+
     public static char leerCaracter(String mensaje) {
         char cracterIntroducido = ' ';
         boolean ok = false;
