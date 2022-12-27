@@ -38,7 +38,8 @@ public class Equipo {
           y se sale del bucle sin tener que llegar al .length
          */
         for (int i = 0; i < listaJugadores.length && !espacio; i++) {
-            if (listaJugadores[i] == null) {
+
+            if (listaJugadores[i] == null ) {
                 espacio = true;
                 listaJugadores[i] = nuevoJugador;
             }
@@ -75,7 +76,9 @@ public class Equipo {
         }
     }
 
-    //TODO Crear metodo obtener entrenador.
+    public String getEntrenador(){
+        return getEntrenador();
+    }
 
     /**
      * Este método se encarga de recorrer el array buscando el numero de goles y añadiendolo a un contador.

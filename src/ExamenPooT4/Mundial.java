@@ -11,6 +11,7 @@ public class Mundial {
 
     public Mundial(String nombre, Equipo[] listaEquipos) {
         this.nombre = nombre;
+        this.listaEquipos = new Equipo[MAX_EQUIPOS];
     }
 
     public static void main(String[] args) throws ChapaException {
@@ -40,36 +41,47 @@ public class Mundial {
 
                     boolean existe = false;
                     boolean encontrado = false;
+                    String nombreEquipo = "";
                     for (int i = 0; i < listaEquipos.length && !existe; i++) {
-                        if (listaEquipos == null) {
-                            existe = false;
-                        } else {
+                        if (listaEquipos[i] == null) {
                             existe = true;
+                        } else {
+                            existe = false;
                         }
                     }
-//                    String nombreEquipo;
-//                    nombreEquipo = Lectora.solicitarCadena("Introduce el nombre del equipo al que quieres añadir un jugador, ");
-//                    //Recorremos el bucle hasta .length  y mientras encontrado sea falso.
-//                    for (int i = 0; i < listaEquipos.length && !encontrado; i++) {
-//                        //Una vez encontrado igualamos esa casilla donde estaba jugador a null.
-//                        if (listaEquipos[i].getPais().equals(nombreEquipo)) {
-//                            equipo = listaEquipos[i];
-//                            encontrado = true;
-//                        }
-//                        if (!encontrado) {
-//                            throw new ChapaException("No se ha encontrado el jugador a borrar. ");
-//                        }
-//                    }
+                    nombreEquipo = Lectora.solicitarCadena("Introduce el nombre del equipo al que quieres añadir un jugador, ");
+                    //Recorremos el bucle hasta .length  y mientras encontrado sea falso.
+                    for (int i = 0; i < listaEquipos.length && !encontrado; i++) {
+                        //Una vez encontrado igualamos esa casilla donde estaba jugador a null.
+                        if (listaEquipos[i].getPais().equals(nombreEquipo)) {
+                            equipo = listaEquipos[i];
+                            encontrado = true;
+                        }
+                        if (!encontrado) {
+                            throw new ChapaException("No se ha encontrado el jugador a borrar. ");
+                        }
+                    }
                     if (existe) {
                         String nombre = Lectora.solicitarCadena("Introduce el nombre del jugador");
                         int edad = Lectora.leerEnteroPositivo("Introduce la edad del jugador");
                         int numGoles = 3;
                         jugador = new Jugador(nombre, edad, numGoles);
-                        equipo.añadirJugador(jugador);
+                        for (int i = 0; i < listaJugadores.length; i++) {
+                            if (existe && !(listaJugadores[i].equals(jugador))) {
+                                equipo.añadirJugador(jugador);
+                            } else if (listaJugadores[i].equals(jugador)) {
+                                throw new ChapaException("No se puede dos iguales.");
+                            }
+                        }
                     }
                     break;
                 case 3:
-                    numTotalGolesEquipo(equipo);
+                    nombreEquipo = Lectora.solicitarCadena("Introduce el nombre del equipo para ver sus goles. ");
+                    for(int i = 0; i < listaEquipos.length; i++){
+                        if(nombreEquipo.equals(equipo.getPais())){
+                            numTotalGolesEquipo(equipo);
+                        }
+                    }
                     break;
                 case 4:
                     pais = Lectora.solicitarCadena("Introduce el pais del equipo buscado");

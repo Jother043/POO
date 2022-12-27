@@ -1,5 +1,7 @@
 package ExamenPooT4;
 
+import java.util.Objects;
+
 public class Jugador {
 
     private String nombre;
@@ -39,5 +41,18 @@ public class Jugador {
                 ", edad=" + edad +
                 ", numGoles=" + numGoles +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Jugador jugador = (Jugador) o;
+        return edad == jugador.edad && numGoles == jugador.numGoles && Objects.equals(nombre, jugador.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, edad, numGoles);
     }
 }
