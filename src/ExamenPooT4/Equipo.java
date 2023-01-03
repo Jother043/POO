@@ -9,7 +9,7 @@ public class Equipo {
     private String Entrenador;
     private Jugador[] listaJugadores;
 
-    public Equipo(String pais, String entrenador, Jugador[] listaJUgadores) {
+    public Equipo(String pais, String entrenador, Jugador[] listaJugadores) {
         this.pais = pais;
         Entrenador = entrenador;
         this.listaJugadores = new Jugador[MAX_JUGADORES];
@@ -25,7 +25,7 @@ public class Equipo {
 
     /**
      * Este método se encarga de añadir un jugador al equipo mediante un bucle for,
-     * despues tenemos una condicion que si el espacio de listaJugadores es = null
+     * después tenemos una condición que si el espacio de listaJugadores es = null
      * entonces podemos introducir un jugador.
      *
      * @param nuevoJugador
@@ -35,7 +35,7 @@ public class Equipo {
         //Creamos un booleano para indicar si hay o no espacio.
         boolean espacio = false;
         /*Recorremos el array de objetos y si esta null significa que hay espacio y ponemos espacio en true
-          y se sale del bucle sin tener que llegar al .length
+          y se sale del bucle sin tener que llegar al length
          */
         for (int i = 0; i < listaJugadores.length && !espacio; i++) {
 
@@ -63,7 +63,7 @@ public class Equipo {
     public void buscarJugadorEliminar(Jugador jugadorBuscado, String nombreJugador) throws ChapaException {
         //Declaramos una variable booleana que nos permitirá salirnos del bucle cuando encuentre la
         boolean encontrado = false;
-        //Recorremos el bucle hasta .length  y mientras encontrado sea falso.
+        //Recorremos el bucle hasta length y mientras encontrado sea falso.
         for (int i = 0; i < listaJugadores.length && !encontrado; i++) {
             //Una vez encontrado igualamos esa casilla donde estaba jugador a null.
             if (listaJugadores[i].getNombre().equals(nombreJugador)) {
@@ -81,14 +81,20 @@ public class Equipo {
     }
 
     /**
-     * Este método se encarga de recorrer el array buscando el numero de goles y añadiendolo a un contador.
+     * Este método se encarga de recorrer el array buscando el número de goles y añadiéndolo a un contador.
      *
      * @return
      */
     public int numeroGolesEquipo() {
         int numGoles = 0;
-        for (int i = 0; i < listaJugadores.length; i++) {
-            numGoles = listaJugadores[i].getNumGoles();
+        boolean existeJugador = false;
+        for (int i = 0; i < listaJugadores.length && !existeJugador; i++) {
+            if(!(listaJugadores[i]==null)){
+                numGoles = listaJugadores[i].getNumGoles();
+            }else{
+                existeJugador = true;
+            }
+
         }
         return numGoles;
     }

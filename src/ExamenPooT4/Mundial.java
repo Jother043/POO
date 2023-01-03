@@ -17,17 +17,19 @@ public class Mundial {
     public static void main(String[] args) throws ChapaException {
         int opcion = 0;
         Jugador[] listaJugadores = new Jugador[MAX_JUGADORES];
-        Equipo[] listaEquipos = new Equipo[MAX_EQUIPOS];
         Equipo equipo = null;
         Jugador jugador = null;
 
+        /*
+        Hacemos un do el cual siempre nos volvera a pedir que introduzcamos cosas a no ser que le demos a salir.
+         */
         do {
             System.out.println("1. Añadir un nuevo equipo. ");
             System.out.println("2. Añadir un nuevo jugador. ");
-            System.out.println("3. Ver total de Goles en el mundial. ");
+            System.out.println("3. Número de goles jugador. ");
             System.out.println("4. Número de goles jugador. ");
             System.out.println("5. salir. ");
-            opcion = Lectora.leerEnteroDeRango("Introduzca la opcion a elegir", 7, 0);
+            opcion = Lectora.leerEnteroDeRango("Introduzca la opción a elegir", 7, 0);
 
 
             switch (opcion) {
@@ -41,6 +43,7 @@ public class Mundial {
 
                     boolean existe = false;
                     boolean encontrado = false;
+                    boolean anadido = false;
                     String nombreEquipo = "";
                     for (int i = 0; i < listaEquipos.length && !existe; i++) {
                         if (listaEquipos[i] == null) {
@@ -49,37 +52,56 @@ public class Mundial {
                             existe = false;
                         }
                     }
-                    nombreEquipo = Lectora.solicitarCadena("Introduce el nombre del equipo al que quieres añadir un jugador, ");
-                    //Recorremos el bucle hasta .length  y mientras encontrado sea falso.
-                    for (int i = 0; i < listaEquipos.length && !encontrado; i++) {
-                        //Una vez encontrado igualamos esa casilla donde estaba jugador a null.
-                        if (listaEquipos[i].getPais().equals(nombreEquipo)) {
-                            equipo = listaEquipos[i];
-                            encontrado = true;
-                        }
-                        if (!encontrado) {
-                            throw new ChapaException("No se ha encontrado el jugador a borrar. ");
-                        }
-                    }
-                    if (existe) {
-                        String nombre = Lectora.solicitarCadena("Introduce el nombre del jugador");
-                        int edad = Lectora.leerEnteroPositivo("Introduce la edad del jugador");
-                        int numGoles = 3;
-                        jugador = new Jugador(nombre, edad, numGoles);
-                        for (int i = 0; i < listaJugadores.length; i++) {
-                            if (existe && !(listaJugadores[i].equals(jugador))) {
-                                equipo.añadirJugador(jugador);
-                            } else if (listaJugadores[i].equals(jugador)) {
-                                throw new ChapaException("No se puede dos iguales.");
+                    /*
+                    Controlamos la excepción con un try catch y un booleano.
+                     */
+                    do {
+                        nombreEquipo = Lectora.solicitarCadena("Introduce el nombre del equipo al que quieres añadir un jugador, ");
+                        try {
+                            for (int i = 0; i < listaEquipos.length && !encontrado; i++) {
+                                //Una vez encontrado igualamos esa casilla donde estaba jugador a null.
+                                if (listaEquipos[i].getPais().equals(nombreEquipo)) {
+                                    equipo = listaEquipos[i];
+                                    encontrado = true;
+                                }
                             }
+                            existe = true;
+                        } catch (Exception ex) {
+                            System.out.println("No se ha encontrado el equipo introducido.");
+                            existe = false;
+                        }
+                    } while (!existe);
+
+
+                    String nombre = Lectora.solicitarCadena("Introduce el nombre del jugador");
+                    int edad = Lectora.leerEnteroPositivo("Introduce la edad del jugador");
+                    int numGoles = 3;
+                    jugador = new Jugador(nombre, edad, numGoles);
+                    for (int i = 0; i < listaJugadores.length && !anadido; i++) {
+                        if (listaJugadores[i] == null && !(listaJugadores[i] == (jugador))) {
+                            equipo.añadirJugador(jugador);
+                            anadido = true;
+
+                        } else if (listaJugadores[i].equals(jugador)) {
+                            throw new ChapaException("No se puede dos iguales.");
                         }
                     }
+
                     break;
                 case 3:
+                    //Le pedimos al usuario que indique el nombre del equipo por teclado.
                     nombreEquipo = Lectora.solicitarCadena("Introduce el nombre del equipo para ver sus goles. ");
-                    for(int i = 0; i < listaEquipos.length; i++){
-                        if(nombreEquipo.equals(equipo.getPais())){
-                            numTotalGolesEquipo(equipo);
+                    /*
+                        Hacemos un for con lista de equipos para saber que equipo buscamos.
+                        Una vez hemos encontrado el equipo que buscamos gracias a la condición del if
+                        (si el nombre introducido es igual al nombre del equipo que sería el pais es verdadero).
+                        Si se cumple pintamos los goles, y salimos con el break, ya que nos saldría 2 veces el resultado
+                        1 vez por iteración.
+                     */
+                    for (int i = 0; i < listaEquipos.length; i++) {
+                        if (nombreEquipo.equals(equipo.getPais())) {
+                            System.out.println(numTotalGolesEquipo(equipo));
+                            break;
                         }
                     }
                     break;
@@ -95,7 +117,7 @@ public class Mundial {
     }
 
     /**
-     * Método que se encarga de añadir los equipos al array de objetos definido.
+     * Método que se encarga de añadir los equipos al array de objetos definidos.
      *
      * @param nuevoEquipo
      * @throws ChapaException
@@ -104,7 +126,7 @@ public class Mundial {
         //Creamos un booleano para indicar si hay o no espacio.
         boolean espacio = false;
         /*Recorremos el array de objetos y si esta null significa que hay espacio y ponemos espacio en true
-          y se sale del bucle sin tener que llegar al .length
+          y se sale del bucle sin tener que llegar al length
          */
         for (int i = 0; i < listaEquipos.length && !espacio; i++) {
             if (listaEquipos[i] == null) {
@@ -119,7 +141,7 @@ public class Mundial {
     }
 
     /**
-     * Este étodo nos busca y elimina el equipo buscado.
+     * Este método nos busca y elimina el equipo buscado.
      *
      * @param equipoBuscado
      * @param paisEquipo
@@ -128,7 +150,7 @@ public class Mundial {
     public static void buscarEquipoEliminar(Equipo equipoBuscado, String paisEquipo) throws ChapaException {
         //Declaramos una variable booleana que nos permitirá salirnos del bucle cuando encuentre la
         boolean encontrado = false;
-        //Recorremos el bucle hasta .length  y mientras encontrado sea falso.
+        //Recorremos el bucle hasta length y mientras encontrado sea falso.
         for (int i = 0; i < listaEquipos.length && !encontrado; i++) {
             //Una vez encontrado igualamos esa casilla donde estaba jugador a null.
             if (listaEquipos[i].getPais().equals(paisEquipo)) {
@@ -150,15 +172,14 @@ public class Mundial {
     public static int numTotalGolesEquipo(Equipo equipo) {
         //variable contadora
         int numTotales = 0;
-        for (int i = 0; i < listaEquipos.length; i++) {
+        for (int i = 0; i < MAX_JUGADORES; i++) {
             numTotales += equipo.numeroGolesEquipo();
-
         }
         return numTotales;
     }
 
     /**
-     * Este metodo te dice cuantos goles ha marcado el jugador que quieres bucar por equipos.
+     * Este método te dice cuantos goles ha marcado el jugador que quieres buscar por equipos.
      *
      * @param equipoBuscado
      * @param paisEquipo
