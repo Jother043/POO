@@ -1,5 +1,7 @@
 package cuenta;
 
+import java.time.temporal.ChronoUnit;
+
 public class Cuenta {
     private double reintegro;
     private double ingreso;
@@ -18,9 +20,9 @@ public class Cuenta {
     public double getSaldo() {
         return saldo;
     }
-    public void reintegro(double cantidadRetirada){
+    public void reintegro(double cantidadRetirada , CuentaCredito cuentaCredito){
 
-        if (reintegro > saldo) {
+        if (reintegro > saldo + cuentaCredito.getCredito()) {
             System.out.println("No puedes retirar esa cantidad.");
         } else {
             this.saldo = this.saldo - cantidadRetirada;

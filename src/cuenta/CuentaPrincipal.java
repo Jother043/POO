@@ -78,7 +78,7 @@ public class CuentaPrincipal {
 
         switch (opcion) {
             case 1:
-                cuenta.reintegro(Lectora.leerDouble("Introduce una cantidad"));
+                cuenta.ingresar(Lectora.leerDouble("Introduce una cantidad"));
                 break;
 
             case 2:
